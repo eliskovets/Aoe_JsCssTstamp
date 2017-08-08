@@ -58,6 +58,14 @@ location @handlercss {
 }
 ```
 
+If you use NGINX and filesystem storage, then:
+
+```
+location ~* ^/(.*)\.[0-9]+\.(css|js)$ {
+    try_files $uri /$1.$2 =404;
+}
+```
+
 ### If you enable the Add timestamps to asset files feature, also add these lines to your nginx config file
 they should NOT be added to any particular location block.
 
